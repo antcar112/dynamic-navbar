@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 2em;
+  background: grey;
+  color: white;
+}
+
+@media only screen and (max-width: 800px) {
+  nav {
+    top: -50px;
+  }
+}
+
+nav > div {
+  display: flex;
+  gap: 0 2em;
+  /* border: 1px red solid; */
+}
+
+.logo {
+  height: 100%;
+  background: blue;
+  margin-left: 1em;
+  padding: 0.6em;
+}
+
+.links {
+}
+
+.links > div {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 5px;
+}
+
+.links .icon {
+  display: none;
+  transition: all ease 200ms;
+}
+
+.links .text {
+  transition: all ease 200ms;
+}
+
+nav.stuck > .links .icon {
+  transform: translateY(10px);
+}
+nav.stuck > .links .text {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@media only screen and (max-width: 800px) {
+  .links {
+    gap: 0;
+    flex-basis: 100%;
+    justify-content: center;
+    order: 3;
+  }
+  .links .icon {
+    display: inline;
+    margin-bottom: 1px;
+  }
+}
+
+.account {
+  margin-left: auto;
+  margin-right: 1em;
+  align-items: center;
+
+  min-width: 0;
+}
+
+.account .name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+h1 {
+  color: blueviolet;
+  margin-bottom: 1em;
+}
