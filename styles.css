@@ -2,15 +2,26 @@ body {
   margin: 0;
 }
 
+main {
+  margin: 0 2em;
+}
+
+@media only screen and (max-width: 800px) {
+  main {
+    margin: 0 1em;
+  }
+}
+
 nav {
   position: sticky;
   top: 0;
   width: 100%;
   background: purple;
   color: white;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 
   display: grid;
-  grid-template-columns: min-content auto min-content;
+  grid-template-columns: min-content auto auto;
 }
 
 @media only screen and (max-width: 800px) {
@@ -23,14 +34,28 @@ nav {
 
 nav > div {
   display: flex;
+  align-items: center;
   gap: 0 2em;
+  height: 68px;
+}
+
+@media only screen and (max-width: 800px) {
+  nav > div {
+    height: 50px;
+  }
 }
 
 .logo {
-  margin-left: 1em;
+  margin-left: 2em;
   margin-right: 1em;
   display: grid;
   place-items: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .logo {
+    margin-left: 1em;
+  }
 }
 
 .logo span {
@@ -45,11 +70,28 @@ nav > div {
   justify-self: start;
 }
 
-.links > div {
-  width: 100%;
-  padding: 5px;
+.links > a {
+  padding: 0.5em 1em;
   display: grid;
   place-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.links > a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+
+  background-color: white;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transition: transform 300ms ease;
+}
+
+.links > a:hover::after {
+  transform: scaleX(1);
 }
 
 .links .icon {
@@ -71,8 +113,13 @@ nav.stuck > .links .text {
 
 @media only screen and (max-width: 800px) {
   .links {
-    grid-column: span 2 / auto;
+    grid-column: 1 / -1;
+    gap: 0;
     order: 3;
+    width: 100%;
+    height: 100%;
+  }
+  .links > a {
     width: 100%;
   }
   .links .icon {
@@ -82,11 +129,17 @@ nav.stuck > .links .text {
 }
 
 .account {
-  margin-right: 1em;
+  margin-right: 2em;
   align-items: center;
   justify-content: flex-end;
 
   min-width: 0;
+}
+
+@media only screen and (max-width: 800px) {
+  .account {
+    margin-right: 1em;
+  }
 }
 
 .account .name {
