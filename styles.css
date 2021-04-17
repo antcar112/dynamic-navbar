@@ -6,41 +6,50 @@ nav {
   position: sticky;
   top: 0;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0 2em;
-  background: grey;
+  background: purple;
   color: white;
+
+  display: grid;
+  grid-template-columns: min-content auto min-content;
 }
 
 @media only screen and (max-width: 800px) {
   nav {
     top: -50px;
+    grid-template-columns: min-content auto;
+    grid-template-rows: auto auto;
   }
 }
 
 nav > div {
   display: flex;
   gap: 0 2em;
-  /* border: 1px red solid; */
 }
 
 .logo {
-  height: 100%;
-  background: blue;
   margin-left: 1em;
-  padding: 0.6em;
+  margin-right: 1em;
+  display: grid;
+  place-items: center;
+}
+
+.logo span {
+  height: 40px;
+  width: 62px;
+  background: blue;
+  display: grid;
+  place-items: center;
 }
 
 .links {
+  justify-self: start;
 }
 
 .links > div {
   width: 100%;
+  padding: 5px;
   display: grid;
   place-items: center;
-  padding: 5px;
 }
 
 .links .icon {
@@ -62,10 +71,9 @@ nav.stuck > .links .text {
 
 @media only screen and (max-width: 800px) {
   .links {
-    gap: 0;
-    flex-basis: 100%;
-    justify-content: center;
+    grid-column: span 2 / auto;
     order: 3;
+    width: 100%;
   }
   .links .icon {
     display: inline;
@@ -74,9 +82,9 @@ nav.stuck > .links .text {
 }
 
 .account {
-  margin-left: auto;
   margin-right: 1em;
   align-items: center;
+  justify-content: flex-end;
 
   min-width: 0;
 }
@@ -88,6 +96,6 @@ nav.stuck > .links .text {
 }
 
 h1 {
-  color: blueviolet;
+  color: navy;
   margin-bottom: 1em;
 }
