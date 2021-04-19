@@ -1,0 +1,14 @@
+@import 'styles';
+
+main {
+  margin: 0 2em;
+
+  @include for-phone {
+    margin: 0 1em;
+  }
+}
+
+h1 {
+  color: navy;
+  margin-bottom: 1em;
+}
