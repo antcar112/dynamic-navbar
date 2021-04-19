@@ -7,6 +7,7 @@ nav {
   background: purple;
   color: white;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  margin-bottom: 50px;
 
   display: grid;
   grid-template-columns: min-content auto auto;
@@ -55,70 +56,10 @@ nav {
 
   @include for-phone {
     grid-column: 1 / -1;
-    gap: 0;
     order: 3;
+    gap: 0;
     width: 100%;
     height: 100%;
-  }
-
-  .link {
-    padding: 0.5em 1em;
-    display: grid;
-    place-items: center;
-    position: relative;
-    cursor: pointer;
-
-    background: none;
-    border: none;
-
-    color: white;
-    font-family: inherit;
-    font-size: inherit;
-
-    @include for-phone {
-      width: 100%;
-    }
-
-    .icon {
-      display: none;
-      transition: all ease 200ms;
-
-      @include for-phone {
-        display: inline;
-        margin-bottom: 1px;
-
-        nav.stuck & {
-          transform: translateY(10px);
-        }
-      }
-    }
-
-    .text {
-      transition: all ease 200ms;
-
-      @include for-phone {
-        nav.stuck & {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-      }
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-
-      background-color: white;
-      width: 100%;
-      height: 2px;
-      transform: scaleX(0);
-      transition: transform 300ms ease;
-    }
-
-    &:hover::after {
-      transform: scaleX(1);
-    }
   }
 }
 
@@ -131,19 +72,16 @@ nav {
   margin-right: 2em;
   margin-left: 1em;
   min-width: 0;
-}
 
-@include for-phone {
-  .account {
+  @include for-phone {
     margin-right: 1em;
     margin-left: 0;
   }
-}
-
-.account .name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  .name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 // nav > div {
@@ -153,3 +91,19 @@ nav {
 // nav > div > * {
 //   border: 1px green solid;
 // }
+
+.subnav {
+  background-color: white;
+  color: black;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  grid-column: 1 / -1;
+  display: none;
+  height: 46px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+
+  &--show {
+    display: block;
+  }
+}
